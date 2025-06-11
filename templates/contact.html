@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="contact-hero bg-primary text-white py-5">
+    <div class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Contact Us</h1>
+                <p class="lead">We'd love to hear from you</p>
+                <p>Have questions about RoadPulse or interested in integrating our technology? Reach out to our team.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="/static/images/contact-hero.jpeg" alt="Contact us" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-4">Send Us a Message</h2>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select class="form-select" id="subject" required>
+                                    <option value="" selected disabled>Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="business">Business Partnership</option>
+                                    <option value="feedback">Product Feedback</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary px-4">
+                                <span id="submitText">Send Message</span>
+                                <span id="submitSpinner" class="spinner-border spinner-border-sm ms-2 d-none"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <h2 class="fw-bold mb-4">Contact Information</h2>
+                        <div class="mb-4">
+                            <h5 class="mb-3"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Our Office</h5>
+                            <p class="ps-4">123 Infrastructure Way<br>San Francisco, CA 94107</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="mb-3"><i class="bi bi-envelope-fill text-primary me-2"></i> Email Us</h5>
+                            <p class="ps-4">
+                                <a href="mailto:info@roadpulse.com">info@roadpulse.com</a><br>
+                                <a href="mailto:support@roadpulse.com">support@roadpulse.com</a>
+                            </p>
+                        </div>
+                        <div class="mb-4">
+                            <h5 class="mb-3"><i class="bi bi-telephone-fill text-primary me-2"></i> Call Us</h5>
+                            <p class="ps-4">
+                                <a href="tel:+18005551234">+1 (800) 555-1234</a><br>
+                                Mon-Fri, 9am-5pm PST
+                            </p>
+                        </div>
+                        <hr class="my-4">
+                        <h5 class="mb-3">Follow Us</h5>
+                        <div class="social-links">
+                            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-0">
+    <div class="container-fluid px-0">
+        <div class="ratio ratio-21x9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.158572329599!2d-122.3898486846823!3d37.7839729797576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807f0f6e81d9%3A0xf830e9b6fe5d1a0f!2s123%20Infrastructure%20Way%2C%20San%20Francisco%2C%20CA%2094107!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Frequently Asked Questions</h2>
+            <p class="lead text-muted">Common questions about RoadPulse</p>
+        </div>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item border-0 shadow-sm mb-3">
+                <h3 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                        How accurate is RoadPulse's analysis?
+                    </button>
+                </h3>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our current model achieves approximately 92% accuracy on our test dataset. However, accuracy can vary based on image quality, lighting conditions, and camera angle. We recommend taking clear, well-lit photos from directly above the road surface for best results.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0 shadow-sm mb-3">
+                <h3 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                        Can I use RoadPulse for commercial purposes?
+                    </button>
+                </h3>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes! RoadPulse offers commercial licenses for municipalities, construction companies, and infrastructure managers. Please contact our business team through the contact form to discuss enterprise solutions and API access.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0 shadow-sm mb-3">
+                <h3 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                        What types of road damage can RoadPulse detect?
+                    </button>
+                </h3>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Our current version detects and classifies general road conditions (good, satisfactory, poor, very poor) based on visible surface distress. We're continuously expanding our model to identify specific damage types like potholes, cracking (alligator, longitudinal, transverse), rutting, and raveling in future updates.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Show loading state
+        submitText.textContent = 'Sending...';
+        submitSpinner.classList.remove('d-none');
+
+        // Simulate form submission (in a real app, you would use fetch() to submit to your backend)
+        setTimeout(function() {
+            // Show success message
+            submitText.textContent = 'Message Sent!';
+            submitSpinner.classList.add('d-none');
+
+            // Reset form
+            contactForm.reset();
+
+            // Show alert
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success alert-dismissible fade show mt-3';
+            alertDiv.innerHTML = `
+                <i class="bi bi-check-circle-fill me-2"></i>
+                Thank you for your message! We'll get back to you within 24 hours.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+            contactForm.appendChild(alertDiv);
+
+            // Reset button text after 3 seconds
+            setTimeout(function() {
+                submitText.textContent = 'Send Message';
+            }, 3000);
+        }, 1500);
+    });
+});
+</script>
+{% endblock %}

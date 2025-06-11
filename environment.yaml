@@ -1,0 +1,16 @@
+
+name: road_pavement_condition
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip=23.0
+  - pytorch=2.0.0
+  - torchvision=0.15.0
+  - cudatoolkit=11.7
+  - flask=2.2.3
+  - pillow=9.4.0
+  - pip:
+    - gunicorn==20.1.0

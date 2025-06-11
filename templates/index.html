@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/images/hero-bg.jpg');">
+    <div class="container text-center text-white py-5">
+        <h1 class="display-4 fw-bold mb-4">AI-Powered Road Condition Analysis</h1>
+        <p class="lead mb-5">Upload a photo of a road surface to instantly assess its condition and get maintenance recommendations</p>
+        <a href="#analyzer" class="btn btn-primary btn-lg px-4 me-2">Try It Now</a>
+        <a href="/about" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">How RoadPulse Works</h2>
+            <p class="lead text-muted">Three simple steps to assess road conditions</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
+                            <i class="bi bi-camera fs-1"></i>
+                        </div>
+                        <h5>1. Capture Image</h5>
+                        <p class="text-muted">Take a clear photo of the road surface from directly above if possible.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
+                            <i class="bi bi-upload fs-1"></i>
+                        </div>
+                        <h5>2. Upload Photo</h5>
+                        <p class="text-muted">Upload your image using our simple interface.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
+                            <i class="bi bi-graph-up fs-1"></i>
+                        </div>
+                        <h5>3. Get Analysis</h5>
+                        <p class="text-muted">Receive instant condition assessment with maintenance recommendations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Road Analyzer Section -->
+<section id="analyzer" class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Road Condition Analyzer</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            For best results, take photos from directly above the road surface in good lighting conditions.
+                        </div>
+                        
+                        <div class="upload-area text-center p-4 mb-4" id="uploadArea">
+                            <div id="imagePreview" class="image-preview mb-3">
+                                <img id="previewImage" src="/static/images/sample-road.jpeg" alt="Preview" class="img-fluid rounded">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button id="uploadBtn" class="btn btn-primary me-2">
+                                    <i class="bi bi-upload me-2"></i>Upload Image
+                                </button>
+                                <button id="captureBtn" class="btn btn-outline-secondary">
+                                    <i class="bi bi-camera me-2"></i>Drag and Drop
+                                </button>
+                                <input type="file" id="imageInput" accept="image/*" class="d-none">
+                                <input type="file" id="cameraInput" accept="image/*" capture="environment" class="d-none">
+                            </div>
+                            <p class="text-muted mt-2 mb-0">Supports JPG, PNG (Max 5MB)</p>
+                        </div>
+                        
+                        <div class="text-center mb-3">
+                            <button id="analyzeBtn" class="btn btn-success btn-lg px-4" disabled>
+                                <span id="analyzeText">Analyze Road Condition</span>
+                                <span id="analyzeSpinner" class="spinner-border spinner-border-sm ms-2 d-none"></span>
+                            </button>
+                        </div>
+                        
+                        <div id="resultSection" class="d-none">
+                            <hr>
+                            <h5 class="mb-3">Analysis Results</h5>
+                            <div id="resultCard" class="card border-0 shadow-sm mb-3">
+                                <div class="card-header d-flex justify-content-between align-items-center" id="resultHeader">
+                                    <span>Condition Assessment</span>
+                                    <span class="badge rounded-pill" id="confidenceBadge"></span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img id="resultImage" src="" alt="Analyzed Road" class="img-fluid rounded">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h5 class="card-title">Condition: <span id="resultClass" class="fw-bold"></span></h5>
+                                            <p class="card-text" id="resultMessage"></p>
+                                            <div class="progress mb-3">
+                                                <div id="confidenceBar" class="progress-bar" role="progressbar"></div>
+                                            </div>
+                                            <p class="text-muted mb-2">Confidence: <span id="resultConfidence"></span>%</p>
+                                            <div id="confidenceWarning" class="alert alert-warning d-none">
+                                                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                                <span id="warningText"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="recommendations" class="card border-0 shadow-sm">
+                                <div class="card-header">
+                                    <h5 class="mb-0">Maintenance Recommendations</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush" id="recommendationList">
+                                        <!-- Will be filled by JavaScript -->
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <button id="newAnalysisBtn" class="btn btn-outline-primary">
+                                    <i class="bi bi-arrow-repeat me-2"></i>Perform New Analysis
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sample Results Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Sample Road Condition Assessments</h2>
+            <p class="lead text-muted">See examples of different road conditions and their analysis</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <img src="/static/images/sample-good.jpeg" class="card-img-top" alt="Good Condition">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Good</span>
+                        <p class="card-text">Smooth surface with no visible distress. No immediate maintenance needed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <img src="/static/images/sample-satisfactory.jpg" class="card-img-top" alt="Satisfactory Condition">
+                    <div class="card-body">
+                        <span class="badge bg-warning text-dark mb-2">Satisfactory</span>
+                        <p class="card-text">Minor surface cracking visible. Preventive maintenance recommended.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <img src="/static/images/sample-poor.jpg" class="card-img-top" alt="Poor Condition">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">Poor</span>
+                        <p class="card-text">Multiple potholes and cracking. Repairs needed within 6 months.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <img src="/static/images/sample-very-poor.jpg" class="card-img-top" alt="Very Poor Condition">
+                    <div class="card-body">
+                        <span class="badge bg-dark mb-2">Very Poor</span>
+                        <p class="card-text">Severe damage with extensive potholes. Immediate repairs required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

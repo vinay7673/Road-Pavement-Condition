@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- About Hero Section -->
+<section class="about-hero bg-primary text-white py-5">
+    <div class="container py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">About RoadPulse</h1>
+                <p class="lead">Revolutionizing road maintenance with AI-powered condition analysis</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="/static/images/about-hero.jpeg" alt="Road analysis" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-4">Our Mission</h2>
+                <p class="lead">To make road infrastructure maintenance smarter, faster, and more cost-effective through artificial intelligence.</p>
+                <p>RoadPulse was born out of the recognition that traditional road condition assessment methods are time-consuming, expensive, and often subjective. Our goal is to democratize access to accurate road condition data for municipalities, transportation departments, and infrastructure managers.</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <h3 class="fw-bold mb-3">Why Choose RoadPulse?</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <div class="d-flex">
+                                    <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                                    <div>
+                                        <h5 class="mb-1">Instant Analysis</h5>
+                                        <p class="text-muted mb-0">Get road condition assessments in seconds, not days</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3">
+                                <div class="d-flex">
+                                    <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                                    <div>
+                                        <h5 class="mb-1">AI-Powered Accuracy</h5>
+                                        <p class="text-muted mb-0">Our models are trained on thousands of road images</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3">
+                                <div class="d-flex">
+                                    <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                                    <div>
+                                        <h5 class="mb-1">Actionable Insights</h5>
+                                        <p class="text-muted mb-0">Get specific maintenance recommendations</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Technology</h2>
+            <p class="lead text-muted">How RoadPulse analyzes road conditions</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
+                            <i class="bi bi-cpu fs-1"></i>
+                        </div>
+                        <h5>Deep Learning</h5>
+                        <p class="text-muted">Our ResNet18-based model is trained to recognize various types of road damage with high accuracy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
+                            <i class="bi bi-image fs-1"></i>
+                        </div>
+                        <h5>Image Processing</h5>
+                        <p class="text-muted">Advanced preprocessing ensures consistent analysis regardless of lighting or angle variations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-box bg-primary bg-opacity-10 text-primary mb-4">
+                            <i class="bi bi-graph-up fs-1"></i>
+                        </div>
+                        <h5>Continuous Improvement</h5>
+                        <p class="text-muted">Our models are regularly updated with new data to improve accuracy over time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Our Team</h2>
+            <p class="lead text-muted">The people behind RoadPulse</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <img src="/static/images/team1.jpg" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Dr. Sarah Chen</h5>
+                        <p class="text-muted">Chief Technology Officer</p>
+                        <p class="card-text">PhD in Computer Vision with 10+ years experience in infrastructure analysis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <img src="/static/images/team2.jpg" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Michael Rodriguez</h5>
+                        <p class="text-muted">Civil Engineer</p>
+                        <p class="card-text">Specializes in pavement engineering and maintenance strategies.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <img src="/static/images/team3.jpg" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Priya Patel</h5>
+                        <p class="text-muted">Data Scientist</p>
+                        <p class="card-text">Machine learning expert focused on improving our classification models.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
